@@ -1,4 +1,4 @@
-import { createInertiaApp, type ResolvedComponent,page } from '@inertiajs/svelte';
+import { createInertiaApp, type ResolvedComponent } from '@inertiajs/svelte';
 import { hydrate, mount } from 'svelte';
 import './bootstrap';
 import {initRouteHelper} from "@tunbudi06/inertia-route-helper/init";
