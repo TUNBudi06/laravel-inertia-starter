@@ -1,8 +1,269 @@
 @import 'tailwindcss';
+@import "tw-animate-css";
+@import "shadcn-svelte/tailwind.css";
+@import "@fontsource-variable/geist-mono";
+@import "@fontsource-variable/geist";
+@plugin "tailwindcss-debug-screens";
+
+@custom-variant dark (&:is(.dark *));
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-mono: 'Geist Mono Variable', monospace;
+    --font-heading: 'Geist Variable', sans-serif;
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-decha-pink-50: oklch(0.971 0.014 343.198);
+    --color-decha-pink-100: oklch(0.948 0.028 342.258);
+    --color-decha-pink-200: oklch(0.899 0.061 343.231);
+    --color-decha-pink-300: oklch(0.823 0.12 346.018);
+    --color-decha-pink-400: oklch(0.718 0.202 349.761);
+    --color-decha-pink-500: oklch(0.656 0.241 354.308);
+    --color-decha-pink-600: oklch(0.592 0.249 0.584);
+    --color-decha-pink-700: oklch(0.525 0.223 3.958);
+    --color-decha-pink-800: oklch(0.459 0.187 3.815);
+    --color-decha-pink-900: oklch(0.408 0.153 2.432);
+    --color-decha-rose: oklch(0.525 0.223 3.958);
+    --color-decha-blush: oklch(0.971 0.014 343.198);
+    --color-decha-charcoal: oklch(0.145 0.008 326);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+    --animate-meteor: meteor 5s linear infinite;
+    --animate-grid: grid 15s linear infinite;
+}
+
+:root {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0.008 326);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0.008 326);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0.008 326);
+    --primary: oklch(0.525 0.223 3.958);
+    --primary-foreground: oklch(0.971 0.014 343.198);
+    --secondary: oklch(0.956 0.021 342.614);
+    --secondary-foreground: oklch(0.21 0.006 285.885);
+    --muted: oklch(0.967 0.009 344.11);
+    --muted-foreground: oklch(0.542 0.034 322.5);
+    --accent: oklch(0.948 0.028 342.258);
+    --accent-foreground: oklch(0.212 0.019 322.12);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.916 0.016 343.14);
+    --input: oklch(0.916 0.016 343.14);
+    --ring: oklch(0.656 0.241 354.308);
+    --chart-1: oklch(0.823 0.12 346.018);
+    --chart-2: oklch(0.656 0.241 354.308);
+    --chart-3: oklch(0.592 0.249 0.584);
+    --chart-4: oklch(0.525 0.223 3.958);
+    --chart-5: oklch(0.459 0.187 3.815);
+    --radius: 0.5rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0.008 326);
+    --sidebar-primary: oklch(0.592 0.249 0.584);
+    --sidebar-primary-foreground: oklch(0.971 0.014 343.198);
+    --sidebar-accent: oklch(0.948 0.028 342.258);
+    --sidebar-accent-foreground: oklch(0.212 0.019 322.12);
+    --sidebar-border: oklch(0.916 0.016 343.14);
+    --sidebar-ring: oklch(0.656 0.241 354.308);
+}
+
+.dark {
+    --background: oklch(0.145 0.008 326);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.212 0.019 322.12);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.212 0.019 322.12);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.656 0.241 354.308);
+    --primary-foreground: oklch(0.971 0.014 343.198);
+    --secondary: oklch(0.274 0.006 286.033);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.263 0.024 320.12);
+    --muted-foreground: oklch(0.711 0.019 323.02);
+    --accent: oklch(0.334 0.065 352.298);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.656 0.241 354.308);
+    --chart-1: oklch(0.823 0.12 346.018);
+    --chart-2: oklch(0.656 0.241 354.308);
+    --chart-3: oklch(0.592 0.249 0.584);
+    --chart-4: oklch(0.525 0.223 3.958);
+    --chart-5: oklch(0.459 0.187 3.815);
+    --sidebar: oklch(0.212 0.019 322.12);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.656 0.241 354.308);
+    --sidebar-primary-foreground: oklch(0.971 0.014 343.198);
+    --sidebar-accent: oklch(0.334 0.065 352.298);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.656 0.241 354.308);
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+    }
+	body {
+		@apply bg-background text-foreground;
+    }
+	html {
+		@apply font-mono;
+    }
+}
+
+/* ============================================
+   ISEKI Decha — Custom Pink Accent Components
+   ============================================ */
+
+@layer components {
+    .btn-decha {
+        @apply bg-decha-rose text-white hover:bg-decha-pink-800
+               dark:bg-decha-pink-500 dark:hover:bg-decha-pink-400
+               transition-colors duration-200 font-medium
+               rounded-lg px-4 py-2;
+    }
+
+    .btn-decha-ghost {
+        @apply bg-transparent text-decha-rose border border-decha-pink-300
+               hover:bg-decha-pink-50 dark:hover:bg-decha-pink-900/30
+               dark:border-decha-pink-700 dark:text-decha-pink-400
+               transition-colors duration-200 font-medium
+               rounded-lg px-4 py-2;
+    }
+
+    .card-decha {
+        @apply bg-white dark:bg-decha-charcoal
+               border border-decha-pink-200 dark:border-decha-pink-800/40
+               shadow-sm shadow-decha-pink-100/50 dark:shadow-decha-pink-900/20
+               rounded-xl p-6;
+    }
+
+    .badge-decha {
+        @apply bg-decha-pink-100 text-decha-pink-800
+               dark:bg-decha-pink-900/40 dark:text-decha-pink-300
+               text-xs font-medium px-2.5 py-0.5 rounded-full;
+    }
+
+    .input-decha {
+        @apply border border-decha-pink-200 dark:border-decha-pink-800/50
+               bg-white dark:bg-decha-charcoal
+               text-foreground placeholder:text-muted-foreground
+               focus:ring-2 focus:ring-decha-pink-400/30 focus:border-decha-pink-500
+               rounded-lg px-3 py-2 outline-none transition-all duration-200;
+    }
+
+    .table-decha {
+        @apply w-full border-collapse;
+    }
+
+    .table-decha th {
+        @apply bg-decha-pink-50 dark:bg-decha-pink-900/20
+               text-decha-pink-800 dark:text-decha-pink-300
+               text-left text-sm font-semibold px-4 py-3
+               border-b border-decha-pink-200 dark:border-decha-pink-800/30;
+    }
+
+    .table-decha td {
+        @apply px-4 py-3 text-sm border-b border-decha-pink-100 dark:border-decha-pink-900/20;
+    }
+
+    .table-decha tr:hover td {
+        @apply bg-decha-pink-50/50 dark:bg-decha-pink-900/10;
+    }
+
+    .heading-decha {
+        @apply font-heading text-decha-charcoal dark:text-white font-bold;
+    }
+
+    .gradient-decha {
+        @apply bg-gradient-to-br from-decha-pink-50 via-white to-decha-pink-100
+               dark:from-decha-pink-900/30 dark:via-decha-charcoal dark:to-decha-pink-800/20;
+    }
+
+    .gradient-decha-primary {
+        @apply bg-gradient-to-r from-decha-rose to-decha-pink-600
+               dark:from-decha-pink-500 dark:to-decha-pink-600;
+    }
+}
+
+/* Scrollbar styling */
+@layer base {
+    ::-webkit-scrollbar {
+        @apply w-2 h-2;
+    }
+    ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+        @apply bg-decha-pink-200 dark:bg-decha-pink-800/50 rounded-full;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-decha-pink-300 dark:bg-decha-pink-700/60;
+    }
+}
 
 @theme inline {
-    --font-sans: Instrument Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	@keyframes meteor {
+		0% {
+			transform: rotate(var(--angle)) translateX(0);
+			opacity: 1;
+        }
+		70% {
+			opacity: 1;
+        }
+		100% {
+			transform: rotate(var(--angle)) translateX(-500px);
+			opacity: 0;
+        }
+    }
+	@keyframes grid {
+		0% {
+			transform: translateY(-50%);
+        }
+		100% {
+			transform: translateY(0);
+        }
+    }
 }

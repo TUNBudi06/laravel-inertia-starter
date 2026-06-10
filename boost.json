@@ -1,14 +1,7 @@
 {
     "agents": [
-        "copilot"
+        "junie"
     ],
-    "packages": [
-        "inertiajs/inertia-laravel"
-    ],
-    "skills": [
-        "wayfinder-development",
-        "pest-testing",
-        "inertia-svelte-development",
-        "tailwindcss-development"
-    ]
+    "cloud": false,
+    "guidelines": true
 }
