@@ -89,6 +89,7 @@ export default defineConfig({
             "@hugeicons/svelte",
             "mode-watcher",
             "svelte-sonner",
+            "@lucide/svelte",
         ],
     },
     ssr: {
