@@ -15,7 +15,7 @@
     import { Meteors } from "$lib/components/magic/meteors";
     import {useHttp} from "@inertiajs/svelte";
     import {toast} from "svelte-sonner";
-    import {loginPost} from "$routes";
+    import {dashboard, loginPost} from "$routes";
 
     let { class: className, ...restProps }: HTMLAttributes<HTMLDivElement> = $props();
     const id = $props.id();
@@ -29,13 +29,11 @@
     function formSubmit(e: Event) {
         e.preventDefault()
         form.post(loginPost().url, {
-            onSuccess: () => {
+            onSuccess: async () => {
                 toast.success("Login Berhasil", {
                     description: "Anda akan diarahkan ke dashboard",
-                    onDismiss: () =>{
-                        router.visit()
-                    }
                 })
+                router.visit(dashboard().url);
             },
             onError: (errors) => {
                 if (errors.username) {
