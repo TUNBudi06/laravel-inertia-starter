@@ -31,5 +31,7 @@ class DatabaseSeeder extends Seeder
                 'role'=>'admin'
             ]
         ]);
+
+        $this->call(TeamsProductionSeeder::class);
     }
 }

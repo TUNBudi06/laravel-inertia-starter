@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, type RouteFormDefinition } from './../wayfinder'
 /**
 * @see \App\Http\Controllers\Auth\MainController::login
- * @see app/Http/Controllers/Auth/MainController.php:12
+ * @see app/Http/Controllers/Auth/MainController.php:13
  * @route '/iseki_decha/public'
  */
 export const login = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -16,7 +16,7 @@ login.definition = {
 
 /**
 * @see \App\Http\Controllers\Auth\MainController::login
- * @see app/Http/Controllers/Auth/MainController.php:12
+ * @see app/Http/Controllers/Auth/MainController.php:13
  * @route '/iseki_decha/public'
  */
 login.url = (options?: RouteQueryOptions) => {
@@ -25,7 +25,7 @@ login.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Auth\MainController::login
- * @see app/Http/Controllers/Auth/MainController.php:12
+ * @see app/Http/Controllers/Auth/MainController.php:13
  * @route '/iseki_decha/public'
  */
 login.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -34,7 +34,7 @@ login.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\Auth\MainController::login
- * @see app/Http/Controllers/Auth/MainController.php:12
+ * @see app/Http/Controllers/Auth/MainController.php:13
  * @route '/iseki_decha/public'
  */
 login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -44,7 +44,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
     /**
 * @see \App\Http\Controllers\Auth\MainController::login
- * @see app/Http/Controllers/Auth/MainController.php:12
+ * @see app/Http/Controllers/Auth/MainController.php:13
  * @route '/iseki_decha/public'
  */
     const loginForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -54,7 +54,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
             /**
 * @see \App\Http\Controllers\Auth\MainController::login
- * @see app/Http/Controllers/Auth/MainController.php:12
+ * @see app/Http/Controllers/Auth/MainController.php:13
  * @route '/iseki_decha/public'
  */
         loginForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -63,7 +63,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
             /**
 * @see \App\Http\Controllers\Auth\MainController::login
- * @see app/Http/Controllers/Auth/MainController.php:12
+ * @see app/Http/Controllers/Auth/MainController.php:13
  * @route '/iseki_decha/public'
  */
         loginForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
@@ -79,7 +79,7 @@ login.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
     login.form = loginForm
 /**
 * @see \App\Http\Controllers\Auth\MainController::loginPost
- * @see app/Http/Controllers/Auth/MainController.php:16
+ * @see app/Http/Controllers/Auth/MainController.php:17
  * @route '/iseki_decha/public/login'
  */
 export const loginPost = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -94,7 +94,7 @@ loginPost.definition = {
 
 /**
 * @see \App\Http\Controllers\Auth\MainController::loginPost
- * @see app/Http/Controllers/Auth/MainController.php:16
+ * @see app/Http/Controllers/Auth/MainController.php:17
  * @route '/iseki_decha/public/login'
  */
 loginPost.url = (options?: RouteQueryOptions) => {
@@ -103,7 +103,7 @@ loginPost.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\Auth\MainController::loginPost
- * @see app/Http/Controllers/Auth/MainController.php:16
+ * @see app/Http/Controllers/Auth/MainController.php:17
  * @route '/iseki_decha/public/login'
  */
 loginPost.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -113,7 +113,7 @@ loginPost.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
     /**
 * @see \App\Http\Controllers\Auth\MainController::loginPost
- * @see app/Http/Controllers/Auth/MainController.php:16
+ * @see app/Http/Controllers/Auth/MainController.php:17
  * @route '/iseki_decha/public/login'
  */
     const loginPostForm = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -123,7 +123,7 @@ loginPost.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
             /**
 * @see \App\Http\Controllers\Auth\MainController::loginPost
- * @see app/Http/Controllers/Auth/MainController.php:16
+ * @see app/Http/Controllers/Auth/MainController.php:17
  * @route '/iseki_decha/public/login'
  */
         loginPostForm.post = (options?: RouteQueryOptions): RouteFormDefinition<'post'> => ({
@@ -210,3 +210,81 @@ dashboard.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
         })
     
     dashboard.form = dashboardForm
+/**
+* @see \App\Http\Controllers\Auth\MainController::loginLogout
+ * @see app/Http/Controllers/Auth/MainController.php:42
+ * @route '/iseki_decha/public/dashboard/logout'
+ */
+export const loginLogout = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: loginLogout.url(options),
+    method: 'get',
+})
+
+loginLogout.definition = {
+    methods: ["get","head"],
+    url: '/iseki_decha/public/dashboard/logout',
+} satisfies RouteDefinition<["get","head"]>
+
+/**
+* @see \App\Http\Controllers\Auth\MainController::loginLogout
+ * @see app/Http/Controllers/Auth/MainController.php:42
+ * @route '/iseki_decha/public/dashboard/logout'
+ */
+loginLogout.url = (options?: RouteQueryOptions) => {
+    return loginLogout.definition.url + queryParams(options)
+}
+
+/**
+* @see \App\Http\Controllers\Auth\MainController::loginLogout
+ * @see app/Http/Controllers/Auth/MainController.php:42
+ * @route '/iseki_decha/public/dashboard/logout'
+ */
+loginLogout.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
+    url: loginLogout.url(options),
+    method: 'get',
+})
+/**
+* @see \App\Http\Controllers\Auth\MainController::loginLogout
+ * @see app/Http/Controllers/Auth/MainController.php:42
+ * @route '/iseki_decha/public/dashboard/logout'
+ */
+loginLogout.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
+    url: loginLogout.url(options),
+    method: 'head',
+})
+
+    /**
+* @see \App\Http\Controllers\Auth\MainController::loginLogout
+ * @see app/Http/Controllers/Auth/MainController.php:42
+ * @route '/iseki_decha/public/dashboard/logout'
+ */
+    const loginLogoutForm = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+        action: loginLogout.url(options),
+        method: 'get',
+    })
+
+            /**
+* @see \App\Http\Controllers\Auth\MainController::loginLogout
+ * @see app/Http/Controllers/Auth/MainController.php:42
+ * @route '/iseki_decha/public/dashboard/logout'
+ */
+        loginLogoutForm.get = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: loginLogout.url(options),
+            method: 'get',
+        })
+            /**
+* @see \App\Http\Controllers\Auth\MainController::loginLogout
+ * @see app/Http/Controllers/Auth/MainController.php:42
+ * @route '/iseki_decha/public/dashboard/logout'
+ */
+        loginLogoutForm.head = (options?: RouteQueryOptions): RouteFormDefinition<'get'> => ({
+            action: loginLogout.url({
+                        [options?.mergeQuery ? 'mergeQuery' : 'query']: {
+                            _method: 'HEAD',
+                            ...(options?.query ?? options?.mergeQuery ?? {}),
+                        }
+                    }),
+            method: 'get',
+        })
+    
+    loginLogout.form = loginLogoutForm
